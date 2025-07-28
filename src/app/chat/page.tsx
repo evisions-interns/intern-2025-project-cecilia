@@ -21,7 +21,7 @@ export default function ChatPage() {
   const isLoading = status === "submitted";
 
   return (
-    <div className="flex h-full flex-1 flex-col overflow-y-auto">
+    <div className="flex h-dvh flex-1 flex-col overflow-y-auto">
       <ChatMessageArea scrollButtonAlignment="center">
         <div className="mx-auto w-full max-w-2xl space-y-4 px-4 py-8">
           {messages.map((message) => {
