@@ -246,7 +246,7 @@ const components: Partial<Components> = {
 		const match = /language-(\w+)/.exec(className || "");
 		if (match) {
 			return (
-				<CodeBlock language={match[1]} className={className} {...props}>
+				<CodeBlock language={match[1]!} className={className} {...props}>
 					{children}
 				</CodeBlock>
 			);
@@ -285,7 +285,7 @@ const MemoizedMarkdownBlock = memo(
 			<ReactMarkdown
 				remarkPlugins={[remarkGfm]}
 				components={components}
-				className={className}
+			
 			>
 				{content}
 			</ReactMarkdown>
@@ -314,16 +314,19 @@ export const MarkdownContent = memo(
 			[content],
 		);
 
-		return blocks.map((block, index) => (
-			<MemoizedMarkdownBlock
-				content={block}
-				className={className}
-				key={`${id}-block_${
-					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-					index
-				}`}
-			/>
-		));
+		return ( 
+		<div className={className}>
+        {blocks.map((block, index) => (
+          <MemoizedMarkdownBlock
+            content={block}
+            key={`${id}-block_${
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              index
+            }`}
+          />
+        ))}
+      </div>
+	  );
 	},
 );
 
