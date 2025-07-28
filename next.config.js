@@ -9,7 +9,7 @@ const config = {
     serverExternalPackages: ['@prisma/adapter-libsql'],
     eslint: {
         ignoreDuringBuilds: true,
-    }
+    },
 };
 
 export default config;
